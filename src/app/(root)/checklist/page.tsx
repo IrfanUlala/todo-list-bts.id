@@ -1,10 +1,12 @@
 "use client";
+import { AiOutlineEye } from "react-icons/ai"; 
 import { BsFillTrashFill } from "react-icons/bs";
 import LoadingPage from "@/components/loading";
 import http from "@/lib/http";
 import Cookies from 'js-cookie';
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type checkListType = {
   "id": number,
@@ -72,6 +74,7 @@ export default function CheckList() {
               </div>
               <button onClick={() => handleDelete(e.id)} className="text-gray-400 hover:text-red-500 duration-300 cursor-pointer"><BsFillTrashFill /></button>
             </div>
+            <Link href={`/checklist/${e.id}`} className="w-full bg-red-50 text-center p-1 rounded text-xs mt-3 text-gray-800 hover:text-white hover:bg-red-500 duration-300 cursor-pointer flex flex-row items-center justify-center gap-2"><AiOutlineEye /> Lihat detail</Link>
           </div>
         ))}
       </div>
